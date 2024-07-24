@@ -5,12 +5,12 @@ $stored_password = 'password123';
 $error_message = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST')
 {
-    $login = $_POST['login'] ?? '';
-    $password = $_POST['password'] ?? '';
+    $login = isset($_POST['login']) ? $_POST['login'] : '';
+    $password = isset($_POST['password']) ? $_POST['password'] : '';
     if ($login === $stored_login && $password === $stored_password)
     {
         $_SESSION['logged_in'] = true;
-        header('Location: main.php');
+        header('Location: entrance1Main.php');
         exit();
     }
     else
@@ -42,6 +42,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
     <br>
     <button type="submit">Login</button>
 </form>
-<p>Не маєте облікового запису? <a href="register.php">Реєстрація</a></p>
+<p>Не маєте облікового запису? <a href="entrance1Register.php">Реєстрація</a></p>
 </body>
 </html>
